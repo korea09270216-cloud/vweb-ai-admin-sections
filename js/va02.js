@@ -126,11 +126,29 @@ VW.add(function (H) {
   /* ---------- 등장 ---------- */
   H.headReveal(".va02");
 
-  // GA4 · 메타 광고 · 엑셀 정리(흐린 알약)가 차례로 뜨고, 가운데 "브이웹 관리자"가 켜짐 — 알약은 그대로 남겨 비교가 보이게
-  H.revealAt(".va02_merge", function (t) {
-    t.from(".va02_old", { opacity: 0, yPercent: 30, stagger: 0.12 }, "< 0%")
-      .fromTo(".va02_one", { opacity: 0.15, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.8)" }, "< 60%");
-  }, "top 80%");
+  // 따로 쓰던 것(왼쪽) → 브이웹 관리자(오른쪽): 박스 등장 → 왼쪽 줄 긋기 → 오른쪽 체크 (gsap.md §3-15 PC 좌우 동시, 모바일은 박스별 트리거)
+  function strikeIn(t, pos) { t.from(".va02_strike", { scaleX: 0, duration: 0.5, ease: "power3.inOut", stagger: 0.12 }, pos); }
+  function checkIn(t, pos) { t.from(".va02_after li em", { scale: 0, duration: 0.5, ease: "back.out(2.4)", stagger: 0.12 }, pos); }
+  H.mm.add(H.PC, function () {
+    H.revealAt(".va02_merge", function (t) {
+      t.from(".va02_before", { opacity: 0, yPercent: 12 }, "< 0%")
+        .from(".va02_after", { opacity: 0, yPercent: 12 }, "< 0%")
+        .from(".va02_arrow", { opacity: 0, xPercent: -30, duration: 0.8 }, "< 30%");
+      strikeIn(t, "< 30%");
+      checkIn(t, "< 40%");
+    }, "top 80%");
+  });
+  H.mm.add(H.MO, function () {
+    H.revealAt(".va02_before", function (t) {
+      t.from(".va02_before", { opacity: 0, yPercent: 12, duration: 0.95 }, "< 0%");
+      strikeIn(t, "< 50%");
+    }, "top 85%");
+    H.revealAt(".va02_after", function (t) {
+      t.from(".va02_arrow", { opacity: 0, yPercent: -30, duration: 0.8 }, "< 0%")
+        .from(".va02_after", { opacity: 0, yPercent: 12, duration: 0.95 }, "< 20%");
+      checkIn(t, "< 50%");
+    }, "top 85%");
+  });
 
   H.mm.add(H.PC, function () {
     H.revealAt(".va02_mock", function (t) {

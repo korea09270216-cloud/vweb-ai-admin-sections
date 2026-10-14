@@ -6,15 +6,22 @@
 .va02 .va02_in { width: 72.917vw; margin: 0 auto; }
 
 /* ---------- 관리자 화면 목업 (font-size = 1em 기준) ---------- */
-/* GA4 · 메타 → 브이웹 관리자 하나 */
-.va02 .va02_merge { position: relative; width: 41.667vw; height: 11.458vw; margin: 2.604vw auto 0; }
-.va02 .va02_old { position: absolute; padding: .677vw 1.25vw; border-radius: 99px; background: #fff; border: 1px solid var(--c-line); color: #9a9cb0; font-size: 1.042vw; font-weight: 700; text-decoration: line-through; text-decoration-color: rgba(154, 156, 176, .7); white-space: nowrap; }
-.va02 .va02_old.o1 { left: 0; top: .521vw; }
-.va02 .va02_old.o2 { right: 0; top: 0; }
-.va02 .va02_old.o3 { left: 50%; bottom: 0; transform: translateX(-50%); }
-.va02 .va02_one { position: absolute; left: 50%; top: 45%; transform: translate(-50%, -50%); padding: 1.25vw 2.292vw; border-radius: 1.25vw; background: var(--c-pri); color: #fff; text-align: center; box-shadow: 0 1.042vw 2.604vw rgba(50, 53, 205, .28); white-space: nowrap; }
-.va02 .va02_one b { display: block; font-size: 1.563vw; font-weight: 800; letter-spacing: -0.03em; }
-.va02 .va02_one span { display: block; margin-top: .313vw; font-size: .833vw; opacity: .8; }
+/* GA4 · 메타 · 엑셀 (따로 쓰던 것) → 브이웹 관리자 (기본 포함) — 좌우 3줄이 1:1로 맞물림 */
+.va02 .va02_merge { display: flex; align-items: center; justify-content: center; gap: 1.667vw; margin: 3.125vw auto 0; }
+.va02 .va02_before, .va02 .va02_after { width: 17.708vw; padding: 1.563vw 1.667vw 1.042vw; border-radius: 1.25vw; }
+.va02 .va02_before { background: #fff; border: 1px solid var(--c-line); }
+.va02 .va02_after { background: var(--c-pri); color: #fff; box-shadow: 0 1.042vw 2.604vw rgba(50, 53, 205, .28); }
+.va02 .va02_lb { padding-bottom: .625vw; font-size: .781vw; font-weight: 700; color: var(--c-sub); }
+.va02 .va02_after .va02_lb { color: #fff; font-size: .938vw; }
+.va02 .va02_lb small { margin-left: .313vw; padding: .156vw .469vw; border-radius: 99px; background: rgba(255, 255, 255, .18); font-size: .625vw; font-weight: 600; vertical-align: .104vw; }
+.va02 .va02_merge li { position: relative; display: flex; align-items: center; justify-content: space-between; height: 2.708vw; border-top: 1px solid var(--c-line); }
+.va02 .va02_after li { border-top-color: rgba(255, 255, 255, .18); }
+.va02 .va02_merge li b { font-size: .99vw; font-weight: 700; letter-spacing: -0.02em; }
+.va02 .va02_before li b { color: #9a9cb0; }
+.va02 .va02_before li span { font-size: .729vw; color: #b5b7c8; }
+.va02 .va02_strike { position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; background: #b5b7c8; transform-origin: left center; }
+.va02 .va02_after li em { width: 1.354vw; height: 1.354vw; display: grid; place-items: center; border-radius: 50%; background: #fff; color: var(--c-pri); font-size: .729vw; font-weight: 800; }
+.va02 .va02_arrow { width: 2.5vw; color: var(--c-pri); }
 
 .va02 .va02_mock { width: 75em; margin: 3.125vw auto 0; font-size: .833vw; border-radius: 1.5em; background: #fff; box-shadow: 0 1.5em 4em rgba(50, 53, 205, .1); overflow: hidden; }
 .va02 .va02_bar { display: flex; align-items: center; height: 3.5em; padding: 0 1.75em; border-bottom: 1px solid var(--c-line); }
@@ -116,12 +123,17 @@
   .va02 .va02_in { width: auto; padding: 0 5.128vw; }
   .va02 .sec_head { padding: 0; }
 
-  .va02 .va02_merge { width: 100%; height: 41.026vw; margin-top: 6.154vw; }
-  .va02 .va02_old { padding: 2.051vw 3.846vw; font-size: 3.59vw; }
-  .va02 .va02_old.o1 { top: 1.538vw; }
-  .va02 .va02_one { padding: 4.103vw 6.667vw; border-radius: 4.103vw; box-shadow: 0 3.077vw 7.692vw rgba(50, 53, 205, .28); }
-  .va02 .va02_one b { font-size: 5.128vw; }
-  .va02 .va02_one span { margin-top: 1.026vw; font-size: 3.077vw; }
+  .va02 .va02_merge { flex-direction: column; gap: 3.077vw; margin-top: 7.692vw; }
+  .va02 .va02_before, .va02 .va02_after { width: 100%; padding: 5.128vw 5.641vw 3.077vw; border-radius: 4.615vw; }
+  .va02 .va02_after { box-shadow: 0 3.077vw 7.692vw rgba(50, 53, 205, .28); }
+  .va02 .va02_lb { padding-bottom: 2.051vw; font-size: 3.333vw; }
+  .va02 .va02_after .va02_lb { font-size: 3.846vw; }
+  .va02 .va02_lb small { margin-left: 1.026vw; padding: .513vw 1.795vw; font-size: 2.821vw; vertical-align: .256vw; }
+  .va02 .va02_merge li { height: 11.282vw; }
+  .va02 .va02_merge li b { font-size: 4.103vw; }
+  .va02 .va02_before li span { font-size: 3.077vw; }
+  .va02 .va02_after li em { width: 5.641vw; height: 5.641vw; font-size: 3.077vw; }
+  .va02 .va02_arrow { width: 8.205vw; transform: rotate(90deg); }
 
   .va02 .va02_mock { width: 100%; margin-top: 7.692vw; font-size: 3.077vw; border-radius: 1.4em; }
   .va02 .va02_bar { height: 3.4em; padding: 0 1.4em; }
