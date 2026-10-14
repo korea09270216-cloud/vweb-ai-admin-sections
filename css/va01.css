@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* =========================================================
+   va01 · 검색에 잘 뜨는 홈페이지 (SEO · AEO · GEO)
+   PC 1920 기준 vw / 하단 @media 모바일 390 기준 vw
+   목업(.va01_phone · .va01_chat)은 font-size 만 vw, 내부는 전부 em
+   ========================================================= */
+.va01 { padding: 8.333vw 0; background: #fff; overflow: hidden; }
+
+/* ---------- 장면 (캡션 + 목업) ---------- */
+.va01_scene { width: 72.917vw; margin: 6.25vw auto 0; display: grid; grid-template-columns: 1fr 36.458vw; align-items: center; column-gap: 4.167vw; }
+.va01_scene2 { grid-template-columns: 36.458vw 1fr; }
+.va01_scene2 .va01_cap { order: 2; }
+.va01_scene1 .va01_cap { padding-left: 3.125vw; }
+
+.va01_num { display: inline-block; padding: .365vw .833vw; border-radius: 99px; background: var(--c-lav); color: var(--c-pri); font-family: var(--f-en); font-weight: 700; font-size: .833vw; letter-spacing: .04em; }
+.va01_cap_tit { margin-top: 1.25vw; font-size: 2.292vw; font-weight: 700; line-height: 1.4; letter-spacing: -0.035em; color: var(--c-ink); }
+.va01_cap_tit em { color: var(--c-pri); }
+
+.va01_stage { position: relative; height: 31.25vw; border-radius: 2.083vw; background: var(--c-bg); display: flex; align-items: center; justify-content: center; }
+.va01_ex { position: absolute; right: 1.458vw; bottom: 1.25vw; font-size: .677vw; color: #9a9aab; letter-spacing: -0.01em; }
+
+/* ---------- 목업 1 : 휴대폰 검색 ---------- */
+.va01_phone { width: 21em; height: 29.5em; padding: .5em; border-radius: 2.75em; background: #111; font-size: .833vw; box-shadow: 0 1.5em 3em rgba(50, 53, 205, .16); }
+.va01_screen { height: 100%; padding: 0 1em; border-radius: 2.3em; background: #fff; overflow: hidden; }
+.va01_status { position: relative; height: 2.6em; display: flex; align-items: center; padding: 0 .6em; }
+.va01_status span { font-family: var(--f-en); font-size: .75em; font-weight: 600; }
+.va01_status i { position: absolute; top: .6em; left: 50%; width: 5.5em; height: 1.4em; margin-left: -2.75em; border-radius: 99px; background: #111; }
+
+.va01_bar { margin-top: .7em; height: 3em; display: flex; align-items: center; gap: .5em; padding: 0 .3em 0 1em; border: 2px solid var(--c-pri); border-radius: 1.5em; }
+.va01_bar_ic { flex: none; width: 1.1em; color: var(--c-pri); }
+.va01_q { flex: 1; min-width: 0; font-size: 1em; font-weight: 700; letter-spacing: -0.03em; white-space: nowrap; overflow: hidden; }
+.va01_q::after { content: ""; display: inline-block; width: 2px; height: 1.05em; margin-left: 2px; vertical-align: -0.15em; background: var(--c-pri); animation: va01_blink 1s steps(1) infinite; }
+.va01_btn { flex: none; height: 2.6em; padding: 0 1.1em; border-radius: 1.3em; background: var(--c-pri); color: #fff; font-size: .85em; font-weight: 700; line-height: 2.6em; }
+@keyframes va01_blink { 50% { opacity: 0; } }
+
+.va01_res { margin-top: 1.6em; display: grid; gap: .9em; }
+.va01_hit { position: relative; display: grid; grid-template-columns: 4em 1fr; align-items: center; gap: .85em; padding: .9em; border: 2px solid var(--c-pri); border-radius: 1.1em; background: #fff; box-shadow: 0 .8em 1.6em rgba(50, 53, 205, .14); }
+.va01_tag { position: absolute; top: -0.95em; right: .9em; padding: .4em .85em; border-radius: 99px; background: var(--c-pri); color: #fff; font-size: .75em; font-weight: 700; line-height: 1.2; }
+.va01_thumb { width: 4em; height: 4em; border-radius: .8em; background: var(--c-lav); display: flex; align-items: center; justify-content: center; }
+.va01_thumb svg { width: 62%; }
+.va01_hit_txt { min-width: 0; }
+.va01_url { font-family: var(--f-en); font-size: .7em; font-weight: 500; color: #8a8a9a; }
+.va01_name { margin-top: .15em; font-size: .92em; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap; }
+.va01_loc { margin-top: .35em; display: flex; align-items: center; gap: .25em; font-size: .75em; font-weight: 600; color: var(--c-pri); white-space: nowrap; }
+.va01_loc svg { flex: none; width: 1.15em; }
+.va01_sk { display: grid; gap: .5em; padding: 1em; border-radius: 1.1em; background: #f4f4f8; }
+.va01_sk i { display: block; height: .55em; border-radius: 99px; background: #e3e3ee; }
+.va01_sk i:nth-child(1) { width: 38%; }
+.va01_sk i:nth-child(2) { width: 82%; height: .75em; }
+.va01_sk i:nth-child(3) { width: 62%; }
+
+/* ---------- 목업 2 : AI 채팅 ---------- */
+.va01_chat { width: 26em; height: 29.5em; display: flex; flex-direction: column; border-radius: 1.6em; background: #fff; overflow: hidden; font-size: .833vw; box-shadow: 0 1.5em 3em rgba(50, 53, 205, .12); }
+.va01_chat_head { flex: none; height: 3.6em; display: flex; align-items: center; gap: .6em; padding: 0 1.3em; border-bottom: 1px solid var(--c-line); }
+.va01_ai { width: 2em; height: 2em; border-radius: 50%; background: var(--c-pri); display: flex; align-items: center; justify-content: center; }
+.va01_ai svg { width: 58%; }
+.va01_chat_head b { font-size: .95em; font-weight: 700; }
+.va01_chat_body { flex: 1; display: flex; flex-direction: column; gap: 1.2em; padding: 1.5em 1.3em; }
+.va01_me { align-self: flex-end; max-width: 80%; padding: .8em 1.1em; border-radius: 1.2em 1.2em .3em 1.2em; background: var(--c-pri); color: #fff; font-size: 1em; font-weight: 600; letter-spacing: -0.02em; }
+.va01_reply { position: relative; align-self: flex-start; width: 88%; }
+.va01_dots { position: absolute; top: 0; left: 0; display: flex; gap: .35em; padding: 1em 1.1em; border-radius: .3em 1.2em 1.2em 1.2em; background: var(--c-lav2); opacity: 0; }
+.va01_dots i { width: .5em; height: .5em; border-radius: 50%; background: var(--c-pri-l); }
+.va01_ans { padding: 1em 1.1em 1.1em; border-radius: .3em 1.2em 1.2em 1.2em; background: var(--c-lav2); }
+.va01_ans_txt { font-size: 1em; font-weight: 600; letter-spacing: -0.02em; }
+.va01_info { margin-top: .8em; display: grid; gap: .45em; padding: .9em 1em; border-radius: .8em; background: #fff; }
+.va01_info_name { font-size: .95em; font-weight: 800; }
+.va01_info_row { display: flex; align-items: center; gap: .4em; font-size: .82em; color: var(--c-txt); }
+.va01_info_row svg { flex: none; width: 1.15em; color: var(--c-pri); }
+.va01_input { flex: none; height: 3.2em; margin: 0 1.3em 1.3em; display: flex; align-items: center; justify-content: space-between; padding: 0 .35em 0 1.2em; border-radius: 1.6em; background: var(--c-bg); }
+.va01_input span { font-size: .85em; color: #9a9aab; }
+.va01_input i { width: 2.5em; height: 2.5em; border-radius: 50%; background: var(--c-pri); display: flex; align-items: center; justify-content: center; }
+.va01_input svg { width: 50%; }
+
+/* ---------- 3가지 요약 카드 ---------- */
+.va01_cards { width: 72.917vw; margin: 8.333vw auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25vw; }
+.va01_card { padding: 2.5vw 2.083vw; border-radius: 1.25vw; background: #fff; box-shadow: 0 .521vw 1.563vw rgba(50, 53, 205, .08); transition: box-shadow .3s; }
+.va01_card:hover { box-shadow: 0 .521vw 1.563vw rgba(50, 53, 205, .18); }
+.va01_ic { width: 3.333vw; height: 3.333vw; border-radius: 50%; background: var(--c-lav); color: var(--c-pri); display: flex; align-items: center; justify-content: center; }
+.va01_ic svg { width: 46%; }
+.va01_word { margin-top: 1.458vw; display: flex; align-items: center; gap: .625vw; font-size: 2.083vw; font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; }
+.va01_word small { padding: .156vw .469vw; border: 1px solid var(--c-line); border-radius: 99px; font-family: var(--f-en); font-size: .625vw; font-weight: 600; line-height: 1.4; letter-spacing: .06em; color: #9a9aab; }
+.va01_line { margin-top: .625vw; font-size: 1.146vw; font-weight: 500; letter-spacing: -0.03em; color: var(--c-sub); }
+
+/* =========================================================
+   모바일 (≤599px, 390 기준)
+   ========================================================= */
+@media (max-width: 599px) {
+  .va01 { padding: 20.513vw 0; }
+
+  .va01_scene, .va01_scene2 { width: auto; margin: 15.385vw 5.128vw 0; grid-template-columns: 1fr; row-gap: 6.154vw; }
+  .va01_scene2 .va01_cap { order: 0; }
+  .va01_scene1 .va01_cap { padding-left: 0; }
+  .va01_cap { text-align: center; }
+  .va01_num { padding: 1.026vw 2.821vw; font-size: 3.077vw; }
+  .va01_cap_tit { margin-top: 3.077vw; font-size: 6.154vw; }
+
+  .va01_stage { height: auto; padding: 9.231vw 0 11.282vw; border-radius: 5.128vw; }
+  .va01_ex { right: 4.103vw; bottom: 3.59vw; font-size: 2.564vw; }
+
+  .va01_phone { font-size: 3.333vw; }
+  .va01_chat { width: 24em; height: 28em; font-size: 3.333vw; }
+
+  .va01_cards { width: auto; margin: 15.385vw 5.128vw 0; grid-template-columns: 1fr; gap: 3.077vw; }
+  .va01_card { display: grid; grid-template-columns: 12.308vw 1fr; column-gap: 4.103vw; align-items: center; padding: 5.128vw; border-radius: 4.103vw; box-shadow: 0 2.051vw 6.154vw rgba(50, 53, 205, .08); }
+  .va01_ic { grid-row: span 2; width: 12.308vw; height: 12.308vw; }
+  .va01_word { margin-top: 0; gap: 2.051vw; font-size: 5.128vw; }
+  .va01_word small { padding: .513vw 1.538vw; font-size: 2.564vw; }
+  .va01_line { margin-top: 1.026vw; font-size: 3.846vw; }
+}
