@@ -1,7 +1,8 @@
 /* =========================================================
-   va02 — 관리자 한 곳에서
+   va02 — 관리자 한 곳에서 (방문자 분석)
    · 헤드: headReveal (섹션 유일한 줄 스플릿)
    · 목업: 커서가 메뉴를 하나씩 눌러 오른쪽 화면이 바뀜 (보일 때만 재생, 메뉴 클릭으로 이동)
+     전환은 순서대로 — 옛 화면이 다 빠진 뒤(0.2s) 새 화면 등장. 두 화면이 겹쳐 보이는 순간 없음
    · 카드 3장 → 마지막 한 줄 (도장)
    ========================================================= */
 VW.add(function (H) {
@@ -12,13 +13,9 @@ VW.add(function (H) {
   const tabs = [].slice.call(sec.querySelectorAll(".va02_menu button"));
   const panels = [].slice.call(sec.querySelectorAll(".va02_panel"));
   const cursor = sec.querySelector(".va02_cursor");
-  const num = sec.querySelector(".va02_num b");
-  const ans = sec.querySelector(".va02_a");
-  const ANS = ans.textContent;
   const HOLD = 2.4;        // 한 화면 머무는 시간(초)
   const HOLD_CLICK = 4.5;  // 직접 눌렀을 땐 조금 더 오래
 
-  let shown = 0;           // 지금 보이는 패널
   let demo = null;         // 지금 도는 한 컷
   let active = false;      // 화면 안에 있나
 
@@ -36,7 +33,7 @@ VW.add(function (H) {
   if (H.REDUCE) {
     cursor.style.display = "none";
     tabs.forEach(function (b, k) {
-      b.addEventListener("click", function () { setTab(k); setPanel(k); shown = k; });
+      b.addEventListener("click", function () { setTab(k); setPanel(k); });
     });
     return;
   }
@@ -54,31 +51,33 @@ VW.add(function (H) {
   // 패널별 짧은 데모 — fromTo 라 몇 번을 다시 틀어도 같은 모양
   function addContent(t, i) {
     const p = panels[i];
+    const q = function (s) { return p.querySelectorAll(s); };
     t.fromTo(p.querySelector(".va02_txt"), { opacity: 0, yPercent: 30 }, { opacity: 1, yPercent: 0, duration: 0.8 }, "< 0%");
-    if (i === 0) {
-      t.fromTo(p.querySelector(".va02_pop"), { opacity: 0, yPercent: 20, scale: 0.9 }, { opacity: 1, yPercent: 0, scale: 1, duration: 0.8, ease: "back.out(1.6)" }, "< 40%");
-    } else if (i === 1) {
-      t.fromTo(p.querySelector(".va02_bn_b"), { xPercent: 100 }, { xPercent: 0, duration: 0.9, ease: "power3.inOut" }, "< 70%");
-    } else if (i === 2) {
-      t.fromTo(p.querySelector(".va02_row_new"), { opacity: 0, yPercent: -30 }, { opacity: 1, yPercent: 0, duration: 0.8 }, "< 40%")
-        .fromTo(p.querySelector(".va02_who"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2)" }, "< 90%");
-    } else if (i === 3) {
-      H.countUp(t, num, "< 30%");
-      t.fromTo(p.querySelectorAll(".va02_bars s"), { scaleX: 0 }, { scaleX: 1, duration: 1.2, stagger: 0.12 }, "< 20%");
-    } else if (i === 4) {
-      ans.textContent = "";
-      t.fromTo(p.querySelector(".va02_q"), { opacity: 0, yPercent: 30, scale: 0.9 }, { opacity: 1, yPercent: 0, scale: 1, duration: 0.7, ease: "back.out(1.6)" }, "< 40%")
-        .fromTo(ans, { opacity: 0 }, { opacity: 1, duration: 0.3 }, "< 80%");
-      H.typeText(t, ans, "", ANS, 0.9, "< 50%");
+    if (i === 0) {          // 접속자 — 숫자 촤르륵 → 휴대폰 비율 채움
+      H.countUp(t, p.querySelector(".va02_num b"), "< 20%");
+      t.fromTo(q(".va02_split s"), { scaleX: 0 }, { scaleX: 1, duration: 1.2 }, "< 35%")
+        .fromTo(q(".va02_legend span"), { opacity: 0 }, { opacity: 1, duration: 0.6, stagger: 0.12 }, "< 50%");
+    } else if (i === 1) {   // 광고 성과 — 줄이 차오르고 → 문의 1위 콕
+      t.fromTo(q(".va02_rank li"), { opacity: 0, yPercent: 30 }, { opacity: 1, yPercent: 0, duration: 0.8, stagger: 0.12 }, "< 20%")
+        .fromTo(q(".va02_rank s"), { scaleX: 0 }, { scaleX: 1, duration: 1.1, stagger: 0.12 }, "< 30%")
+        .fromTo(q(".va02_rank strong"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2)" }, "< 80%");
+    } else if (i === 2) {   // 체류 · 행동 — 시간 촤르륵 → 어디까지 봤나
+      H.countUp(t, p.querySelector(".va02_num b"), "< 20%");
+      t.fromTo(q(".va02_bars s"), { scaleX: 0 }, { scaleX: 1, duration: 1.2, stagger: 0.12 }, "< 35%");
+    } else if (i === 3) {   // 광고 → 문의 — 42 → 12 → 5 차례로 → 비율 콕
+      t.fromTo(q(".va02_steps li"), { opacity: 0, xPercent: -20 }, { opacity: 1, xPercent: 0, duration: 0.8, stagger: 0.25 }, "< 20%")
+        .fromTo(q(".va02_rate"), { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(2)" }, "< 85%");
     }
   }
 
   // i 번 화면으로 — byCursor: 커서가 가서 누름 / 아니면 사람이 직접 누름
   function go(i, byCursor) {
     if (demo) demo.kill();
-    // 이전 컷이 중간에 끊겼으면 남은 패널 정리
-    panels.forEach(function (p, k) { if (k !== shown && k !== i) gsap.set(p, { autoAlpha: 0 }); });
-    const from = shown;
+    // 지금 조금이라도 보이는 다른 화면 (중간에 끊긴 전환 포함) — 이게 다 빠진 뒤에만 새 화면
+    const out = panels.filter(function (p, k) { return k !== i && gsap.getProperty(p, "opacity") > 0; });
+    const fadeIn = out.length > 0 || gsap.getProperty(panels[i], "opacity") < 1;
+    if (out.length) gsap.set(panels[i], { autoAlpha: 0 });
+
     const t = gsap.timeline({ paused: !active, defaults: { duration: 1, ease: "power4.out" }, onComplete: function () { go((i + 1) % panels.length, true); } });
     demo = t;
 
@@ -91,11 +90,9 @@ VW.add(function (H) {
       const c2 = cursorPos(i);
       gsap.set(cursor, { x: c2.x, y: c2.y });
     }
-    t.call(function () { setTab(i); setPanel(i); shown = i; }, null, byCursor ? "< 50%" : "< 0%");
-    if (from !== i) {
-      t.fromTo(panels[from], { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.25, ease: "none" }, "< 0%")
-        .fromTo(panels[i], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "none" }, "< 0%");
-    }
+    t.call(function () { setTab(i); setPanel(i); }, null, "< 50%");
+    if (out.length) t.to(out, { autoAlpha: 0, duration: 0.2, ease: "power1.in" }, "< 0%");                     // ① 옛 화면 완전히 빠짐
+    if (fadeIn) t.fromTo(panels[i], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, ease: "power1.out" }, out.length ? "< 100%" : "< 0%"); // ② 그 다음 새 화면
     addContent(t, i);
     t.to({}, { duration: byCursor ? HOLD : HOLD_CLICK }, "< 100%");
     if (active) t.play();
@@ -106,7 +103,7 @@ VW.add(function (H) {
   });
 
   // 커서 첫 자리
-  function placeCursor() { if (isPC()) { const c = cursorPos(shown); gsap.set(cursor, { x: c.x, y: c.y }); } }
+  function placeCursor() { if (isPC()) { const c = cursorPos(Math.max(0, tabs.findIndex(function (b) { return b.classList.contains("on"); }))); gsap.set(cursor, { x: c.x, y: c.y }); } }
   placeCursor();
   window.addEventListener("resize", function () { if (!demo || !demo.isActive()) placeCursor(); });
 
@@ -165,7 +162,7 @@ VW.add(function (H) {
     H.revealEach(".va02_cards li", { opacity: 0, yPercent: 30 }, "top 90%");
   });
 
-  // 마지막 한 줄 — 앞줄 슈슉 → "누르면 끝." 쾅
+  // 마지막 한 줄 — 앞줄 슈슉 → "사장님은 보기만." 쾅
   H.revealAt(".va02_end", function (t) {
     t.from(".va02_end_a", { opacity: 0, yPercent: 30 }, "< 0%")
       .from(".va02_end_b", { opacity: 0, scale: 3, duration: 0.7, ease: "expo.in" }, "< 30%");

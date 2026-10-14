@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/base.css?v=8">
   <link rel="stylesheet" href="css/base_mo.css?v=8">
   <link rel="stylesheet" href="css/va01.css?v=8">
-  <link rel="stylesheet" href="css/va02.css?v=8">
+  <link rel="stylesheet" href="css/va02.css?v=10">
 </head>
 <body>
 
@@ -163,9 +163,9 @@
       <div class="va02_after">
         <p class="va02_lb">브이웹 관리자 <small>기본 포함</small></p>
         <ul>
-          <li><b>방문자 분석</b><em>✓</em></li>
-          <li><b>광고 유입</b><em>✓</em></li>
-          <li><b>문의 정리</b><em>✓</em></li>
+          <li><b>접속자 · 체류</b><em>✓</em></li>
+          <li><b>광고 성과</b><em>✓</em></li>
+          <li><b>광고 → 문의</b><em>✓</em></li>
         </ul>
       </div>
     </div>
@@ -177,74 +177,65 @@
       </div>
       <div class="va02_body">
         <ul class="va02_menu" role="tablist">
-          <li><button type="button" class="on" role="tab" aria-selected="true" data-i="0">팝업</button></li>
-          <li><button type="button" role="tab" aria-selected="false" data-i="1">배너</button></li>
-          <li><button type="button" role="tab" aria-selected="false" data-i="2">문의</button></li>
-          <li><button type="button" role="tab" aria-selected="false" data-i="3">손님</button></li>
-          <li><button type="button" role="tab" aria-selected="false" data-i="4">AI 상담</button></li>
+          <li><button type="button" class="on" role="tab" aria-selected="true" data-i="0">접속자</button></li>
+          <li><button type="button" role="tab" aria-selected="false" data-i="1">광고 성과</button></li>
+          <li><button type="button" role="tab" aria-selected="false" data-i="2">체류 · 행동</button></li>
+          <li><button type="button" role="tab" aria-selected="false" data-i="3">광고 → 문의<span class="va02_new">NEW</span></button></li>
         </ul>
 
         <div class="va02_stage">
-          <!-- 0 팝업 -->
+          <!-- 0 접속자 -->
           <div class="va02_panel va02_p0 on" role="tabpanel">
-            <div class="va02_txt"><b>팝업 띄우기</b><span>기간만 정하면 알아서.</span></div>
-            <div class="va02_vis">
-              <div class="va02_phone">
-                <i class="va02_line"></i><i class="va02_line s"></i><i class="va02_line"></i><i class="va02_line s"></i>
-                <div class="va02_pop">
-                  <div class="va02_pop_img"><small>MONO BREW</small><b>가을 신메뉴</b></div>
-                  <div class="va02_pop_btm"><span>하루 안 보기</span><span>닫기</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- 1 배너 -->
-          <div class="va02_panel va02_p1" role="tabpanel">
-            <div class="va02_txt"><b>배너 바꾸기</b><span>사진만 올리면 끝.</span></div>
-            <div class="va02_vis">
-              <div class="va02_site">
-                <div class="va02_site_top"><b>MONO BREW</b><i></i><i></i><i></i></div>
-                <div class="va02_banner">
-                  <div class="va02_bn va02_bn_a"><b>가을 신메뉴</b><small>밤 라떼</small></div>
-                  <div class="va02_bn va02_bn_b"><b>겨울 신메뉴</b><small>뱅쇼 라떼</small></div>
-                </div>
-                <i class="va02_line"></i><i class="va02_line s"></i>
-              </div>
-            </div>
-          </div>
-          <!-- 2 문의 -->
-          <div class="va02_panel va02_p2" role="tabpanel">
-            <div class="va02_txt"><b>새 문의 1건</b><span>담당자 자동 배정.</span></div>
-            <div class="va02_vis">
-              <ul class="va02_list">
-                <li class="va02_row va02_row_new"><b>김OO</b><span>가맹 문의</span><em class="va02_who">박 팀장</em><i class="va02_st">접수</i></li>
-                <li class="va02_row"><b>이OO</b><span>창업 비용</span><em>최 실장</em><i class="va02_st g">상담중</i></li>
-                <li class="va02_row"><b>정OO</b><span>매장 오픈</span><em>박 팀장</em><i class="va02_st d">계약</i></li>
-              </ul>
-            </div>
-          </div>
-          <!-- 3 손님 -->
-          <div class="va02_panel va02_p3" role="tabpanel">
-            <div class="va02_txt"><b>오늘 온 손님</b><span>네이버 · 인스타 · 광고별로.</span></div>
+            <div class="va02_txt"><b>오늘 온 손님</b><span>휴대폰 · PC 따로 셉니다.</span></div>
             <div class="va02_vis">
               <div class="va02_stat">
                 <p class="va02_num"><b data-to="128">128</b>명<span class="va02_tag">예시</span></p>
-                <ul class="va02_bars">
-                  <li><span>네이버</span><i><s style="width:56%"></s></i><em>56%</em></li>
-                  <li><span>인스타 광고</span><i><s style="width:30%"></s></i><em>30%</em></li>
-                  <li><span>기타</span><i><s style="width:14%"></s></i><em>14%</em></li>
+                <div class="va02_split"><s></s></div>
+                <p class="va02_legend"><span><i></i>휴대폰 72%</span><span><i class="p"></i>PC 28%</span></p>
+              </div>
+            </div>
+          </div>
+          <!-- 1 광고 성과 -->
+          <div class="va02_panel va02_p1" role="tabpanel">
+            <div class="va02_txt"><b>광고별 손님</b><span>광고마다 손님 수 · 문의 수.</span></div>
+            <div class="va02_vis">
+              <div class="va02_stat">
+                <p class="va02_cap">오늘 광고로 온 손님<span class="va02_tag">예시</span></p>
+                <ul class="va02_rank">
+                  <li class="on"><span>네이버 광고</span><i><s style="width:100%"></s></i><b>42명</b><em>문의 5</em><strong>문의 1위</strong></li>
+                  <li><span>메타 광고</span><i><s style="width:74%"></s></i><b>31명</b><em>문의 2</em></li>
+                  <li><span>구글 광고</span><i><s style="width:43%"></s></i><b>18명</b><em>문의 3</em></li>
                 </ul>
               </div>
             </div>
           </div>
-          <!-- 4 AI 상담 -->
-          <div class="va02_panel va02_p4" role="tabpanel">
-            <div class="va02_txt"><b>AI 상담 켜기</b><span>밤 문의도 놓치지 않게.</span></div>
+          <!-- 2 체류 · 행동 -->
+          <div class="va02_panel va02_p2" role="tabpanel">
+            <div class="va02_txt"><b>머문 시간</b><span>어디까지 봤는지도 보입니다.</span></div>
             <div class="va02_vis">
-              <div class="va02_chat">
-                <p class="va02_chat_tone">말투 · 친절하게</p>
-                <p class="va02_q">창업 비용 궁금해요</p>
-                <p class="va02_a">네! 바로 알려드릴게요.</p>
+              <div class="va02_stat">
+                <p class="va02_num va02_time"><small>평균</small><b data-to="102" data-fmt="time">1분 42초</b><span class="va02_tag">예시</span></p>
+                <p class="va02_cap">어디까지 봤나</p>
+                <ul class="va02_bars">
+                  <li><span>메인</span><i><s style="width:100%"></s></i><em>100%</em></li>
+                  <li><span>메뉴</span><i><s style="width:71%"></s></i><em>71%</em></li>
+                  <li><span>창업 문의</span><i><s style="width:34%"></s></i><em>34%</em></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 3 광고 → 문의 (NEW) -->
+          <div class="va02_panel va02_p3" role="tabpanel">
+            <div class="va02_txt"><b>광고 → 문의</b><span>광고비가 문의로 이어졌는지 바로.</span></div>
+            <div class="va02_vis">
+              <div class="va02_stat">
+                <p class="va02_cap">네이버 광고<span class="va02_utm">UTM</span><span class="va02_tag">예시</span></p>
+                <ol class="va02_steps">
+                  <li><b>42명</b><span>광고로 온 손님</span></li>
+                  <li><b>12명</b><span>문의창 본 손님</span></li>
+                  <li class="on"><b>5명</b><span>문의 보낸 손님</span></li>
+                </ol>
+                <p class="va02_rate">문의로 이어진 비율 <b>12%</b></p>
               </div>
             </div>
           </div>
@@ -254,12 +245,12 @@
     </div>
 
     <ul class="va02_cards">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="12" height="9" rx="1.5"/><rect x="16" y="8" width="5.5" height="11" rx="1.2"/><path d="M6 18h5"/></svg><b>PC·휴대폰 따로</b></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/></svg><b>설치 없이 바로</b></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg><b>봇 · 내 방문 제외</b></li>
       <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><b>엑셀로 받기</b></li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></svg><b>스팸 · 봇 차단</b></li>
     </ul>
 
-    <p class="va02_end"><span class="va02_end_a">공부할 필요 없습니다.</span><br><em class="va02_end_b">누르면 끝.</em></p>
+    <p class="va02_end"><span class="va02_end_a">숫자 정리는 관리자가.</span><br><em class="va02_end_b">사장님은 보기만.</em></p>
   </div>
 </section>
 <!-- @VA02 END -->
@@ -275,6 +266,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
 <script src="js/base.js?v=8"></script>
 <script src="js/va01.js?v=8"></script>
-<script src="js/va02.js?v=8"></script>
+<script src="js/va02.js?v=10"></script>
 </body>
 </html>
