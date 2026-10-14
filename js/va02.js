@@ -126,19 +126,10 @@ VW.add(function (H) {
   /* ---------- 등장 ---------- */
   H.headReveal(".va02");
 
-  // GA4 · 메타 · 엑셀 → 가운데로 모여 "브이웹 관리자" 하나로 (PC · 모바일 같은 동작, 블록 하나라 트리거 1개)
-  const one = document.querySelector(".va02_one");
-  function toCenter(el, axis) {
-    const a = el.getBoundingClientRect(), b = one.getBoundingClientRect();
-    return axis === "x" ? (b.left + b.width / 2) - (a.left + a.width / 2) : (b.top + b.height / 2) - (a.top + a.height / 2);
-  }
+  // GA4 · 메타 광고 · 엑셀 정리(흐린 알약)가 차례로 뜨고, 가운데 "브이웹 관리자"가 켜짐 — 알약은 그대로 남겨 비교가 보이게
   H.revealAt(".va02_merge", function (t) {
     t.from(".va02_old", { opacity: 0, yPercent: 30, stagger: 0.12 }, "< 0%")
-      .to(".va02_old", {
-        x: function (i, el) { return toCenter(el, "x"); }, y: function (i, el) { return toCenter(el, "y"); },
-        scale: 0.6, opacity: 0, duration: 0.8, ease: "power3.in", stagger: 0.06,
-      }, "< 110%")
-      .fromTo(".va02_one", { opacity: 0.15, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.8)" }, "< 70%");   // 처음부터 흐리게 자리 잡고 있다가 모일 때 켜짐 (빈 화면 1초 방지)
+      .fromTo(".va02_one", { opacity: 0.15, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.8)" }, "< 60%");
   }, "top 80%");
 
   H.mm.add(H.PC, function () {

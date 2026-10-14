@@ -7,7 +7,7 @@
 
 /* ---------- 관리자 화면 목업 (font-size = 1em 기준) ---------- */
 /* GA4 · 메타 → 브이웹 관리자 하나 */
-.va02 .va02_merge { position: relative; width: 41.667vw; height: 13.542vw; margin: 4.167vw auto 0; }
+.va02 .va02_merge { position: relative; width: 41.667vw; height: 11.458vw; margin: 2.604vw auto 0; }
 .va02 .va02_old { position: absolute; padding: .677vw 1.25vw; border-radius: 99px; background: #fff; border: 1px solid var(--c-line); color: #9a9cb0; font-size: 1.042vw; font-weight: 700; text-decoration: line-through; text-decoration-color: rgba(154, 156, 176, .7); white-space: nowrap; }
 .va02 .va02_old.o1 { left: 0; top: .521vw; }
 .va02 .va02_old.o2 { right: 0; top: 0; }
@@ -16,7 +16,7 @@
 .va02 .va02_one b { display: block; font-size: 1.563vw; font-weight: 800; letter-spacing: -0.03em; }
 .va02 .va02_one span { display: block; margin-top: .313vw; font-size: .833vw; opacity: .8; }
 
-.va02 .va02_mock { width: 75em; margin: 5.208vw auto 0; font-size: .833vw; border-radius: 1.5em; background: #fff; box-shadow: 0 1.5em 4em rgba(50, 53, 205, .1); overflow: hidden; }
+.va02 .va02_mock { width: 75em; margin: 3.125vw auto 0; font-size: .833vw; border-radius: 1.5em; background: #fff; box-shadow: 0 1.5em 4em rgba(50, 53, 205, .1); overflow: hidden; }
 .va02 .va02_bar { display: flex; align-items: center; height: 3.5em; padding: 0 1.75em; border-bottom: 1px solid var(--c-line); }
 .va02 .va02_bar_logo { display: flex; align-items: center; gap: .6em; font-size: .95em; font-weight: 700; letter-spacing: -0.02em; }
 .va02 .va02_bar_logo::before { content: ""; width: .75em; height: .75em; border-radius: .2em; background: var(--c-pri); }
@@ -116,14 +116,14 @@
   .va02 .va02_in { width: auto; padding: 0 5.128vw; }
   .va02 .sec_head { padding: 0; }
 
-  .va02 .va02_merge { width: 100%; height: 46.154vw; margin-top: 10.256vw; }
+  .va02 .va02_merge { width: 100%; height: 41.026vw; margin-top: 6.154vw; }
   .va02 .va02_old { padding: 2.051vw 3.846vw; font-size: 3.59vw; }
   .va02 .va02_old.o1 { top: 1.538vw; }
   .va02 .va02_one { padding: 4.103vw 6.667vw; border-radius: 4.103vw; box-shadow: 0 3.077vw 7.692vw rgba(50, 53, 205, .28); }
   .va02 .va02_one b { font-size: 5.128vw; }
   .va02 .va02_one span { margin-top: 1.026vw; font-size: 3.077vw; }
 
-  .va02 .va02_mock { width: 100%; margin-top: 12.821vw; font-size: 3.077vw; border-radius: 1.4em; }
+  .va02 .va02_mock { width: 100%; margin-top: 7.692vw; font-size: 3.077vw; border-radius: 1.4em; }
   .va02 .va02_bar { height: 3.4em; padding: 0 1.4em; }
   .va02 .va02_body { display: block; height: auto; }
   .va02 .va02_menu { flex-direction: row; gap: .3em; padding: .8em; border-right: 0; border-bottom: 1px solid var(--c-line); }
