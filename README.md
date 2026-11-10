@@ -1,5 +1,7 @@
 # 브이웹 메인 새 섹션 — 검색 · 관리자
 
+https://korea09270216-cloud.github.io/vweb-ai-admin-sections/
+
 브이웹.com 메인에 넣을 새 섹션 2개의 시안과 GSAP 모션 데모입니다.
 
 | # | 섹션 | 내용 |
